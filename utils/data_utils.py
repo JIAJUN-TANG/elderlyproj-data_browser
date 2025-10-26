@@ -5,7 +5,7 @@ import os
 from typing import List
 
 
-def get_db_connection(db_path='./MediaCrawler/database/sqlite_tables.db'):
+def get_db_connection(db_path='../MediaCrawler/database/sqlite_tables.db'):
     try:
         conn = sqlite3.connect(db_path)
         conn.row_factory = sqlite3.Row
@@ -199,7 +199,7 @@ def get_media(platform: str, media_id: str) -> List[str]:
     try:
         media_files = []
         for media_type in ["videos", "images"]:
-            base_dir = os.path.join("MediaCrawler", "data", platform, media_type, str(media_id))
+            base_dir = os.path.join("../", "MediaCrawler", "data", platform, media_type, str(media_id))
             base_dir = os.path.abspath(base_dir)
             if not os.path.exists(base_dir):
                 continue
