@@ -13,7 +13,6 @@ def get_db_connection(db_path='../MediaCrawler/database/sqlite_tables.db'):
     except:
         return None
     
-@st.cache_data
 def get_statistics():
     conn = get_db_connection()
     if conn is None:
@@ -52,7 +51,6 @@ def get_statistics():
         "total_records": total_records
     }
 
-@st.cache_data
 def get_search_term():
     """
     查询每个平台的检索词（source_keyword），并按“平台+检索词”分组统计数据量
